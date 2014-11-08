@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @dispute.company %>
+</p>
+
+<p>
+  <strong>Policy name:</strong>
+  <%= @dispute.policy_name %>
+</p>
+
+<p>
+  <strong>Policy text:</strong>
+  <%= @dispute.policy_text %>
+</p>
+
+<p>
+  <strong>Policy link:</strong>
+  <%= @dispute.policy_link %>
+</p>
+
+<%= link_to 'Edit', edit_dispute_path(@dispute) %> |
+<%= link_to 'Back', disputes_path %>

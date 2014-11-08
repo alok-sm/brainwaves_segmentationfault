@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company: MyString
+  policy_name: MyString
+  policy_text: MyString
+  policy_link: MyString
+
+two:
+  company: MyString
+  policy_name: MyString
+  policy_text: MyString
+  policy_link: MyString

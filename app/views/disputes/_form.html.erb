@@ -1,0 +1,33 @@
+<%= form_for(@dispute) do |f| %>
+  <% if @dispute.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dispute.errors.count, "error") %> prohibited this dispute from being saved:</h2>
+
+      <ul>
+      <% @dispute.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :company %><br>
+    <%= f.text_field :company %>
+  </div>
+  <div class="field">
+    <%= f.label :policy_name %><br>
+    <%= f.text_field :policy_name %>
+  </div>
+  <div class="field">
+    <%= f.label :policy_text %><br>
+    <%= f.text_field :policy_text %>
+  </div>
+  <div class="field">
+    <%= f.label :policy_link %><br>
+    <%= f.text_field :policy_link %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
