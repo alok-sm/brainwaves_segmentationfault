@@ -1,5 +1,6 @@
 Rails.application.routes.draw do  #match 'photos', to: 'photos#show', via: [:get, :post]
-  match 'analyze' ,:to => 'analyze#index' ,:via => [:get,:post]
+  match 'analyze/file' ,:to => 'analyze#file' ,:via => [:get,:post]
+  match 'analyze/text' ,:to => 'analyze#text' ,:via => [:get,:post]
   resources :disputes
   resources :clauses
   # The priority is based upon order of creation: first created -> highest priority.
