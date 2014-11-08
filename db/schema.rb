@@ -13,14 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20141108174824) do
 
-  create_table "claims", force: true do |t|
-    t.string   "claim_text"
-    t.string   "claim_status"
-    t.integer  "claim_count"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "clauses", force: true do |t|
     t.integer  "dispute_id"
     t.string   "clause_text"

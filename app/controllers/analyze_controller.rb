@@ -1,12 +1,10 @@
 class AnalyzeController < ApplicationController
 	def text
-		puts 'hello2'
 		text = params[:text]
 		process1(text)
 	end
 
 	def file
-		puts 'hello'
 		p params
 		u = Upload.new(:file => params[:file])
 		u.save
@@ -15,7 +13,9 @@ class AnalyzeController < ApplicationController
 	end
 
 	def process1(text)
-		puts 'hello1'
+		puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+		puts text
+		puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
 		sentences = text.split(/[.?!]/)
 		disputes = Dispute.all.sort{ |x, y| -((x.policy_text.split(/[.?!]/) & sentences).count <=> (y.policy_text.split(/[.?!]/) & sentences).count )}.first(5)
 		rendertext = disputes[0].policy_text
