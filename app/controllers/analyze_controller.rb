@@ -30,7 +30,7 @@ class AnalyzeController < ApplicationController
 		puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
 		clauses.each do |c|
 			puts c.clause_text
-			text = text.gsub(c.clause_text, '<mark style = "background-color: red">'+c.clause_text+'</mark>')
+			text = text.gsub(c.clause_text, '<mark style = "background-color:'+c.clause_status+'">'+c.clause_text+'</mark>')
 		end
 		puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
 		# raise 'a'
