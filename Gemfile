@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem 'yomu'
 gem "paperclip", "~> 4.2"
 require 'thread'
 gem 'thin'

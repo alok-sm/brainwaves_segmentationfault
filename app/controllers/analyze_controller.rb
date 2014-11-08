@@ -1,18 +1,21 @@
 class AnalyzeController < ApplicationController
 	def text
+		puts 'hello2'
 		text = params[:text]
-		process(text)
+		process1(text)
 	end
 
 	def file
+		puts 'hello'
 		p params
 		u = Upload.new(:file => params[:file])
 		u.save
-		text = yomu.new(u.path).text
-		process(text)
+		text = Yomu.new(u.file.path).text
+		process1(text)
 	end
 
-	def process(text)
+	def process1(text)
+		puts 'hello1'
 		sentences = text.split(/[.?!]/)
 		disputes = Dispute.all.sort{ |x, y| -((x.policy_text.split(/[.?!]/) & sentences).count <=> (y.policy_text.split(/[.?!]/) & sentences).count )}.first(5)
 		rendertext = disputes[0].policy_text
