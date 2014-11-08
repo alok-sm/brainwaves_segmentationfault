@@ -1,5 +1,5 @@
 class AnalyzeController < ApplicationController
-	def index
+	def text
 		text = params[:text]
 		sentences = text.split(/[.?!]/)
 		disputes = Dispute.all.sort{ |x, y| -((x.policy_text.split(/[.?!]/) & sentences).count <=> (y.policy_text.split(/[.?!]/) & sentences).count )}.first(5)
@@ -17,5 +17,11 @@ class AnalyzeController < ApplicationController
 		end
 		# raise 'a'
 		render :inline => text
+	end
+
+	def file
+		p params
+		Upload.new(:file => params[:file]).save
+		render :json => 'jjg'
 	end
 end
