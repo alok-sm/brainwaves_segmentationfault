@@ -1,6 +1,7 @@
 class AnalyzeController < ApplicationController
 	def text
 		text = params[:text]
+		p text
 		process1(text)
 	end
 
