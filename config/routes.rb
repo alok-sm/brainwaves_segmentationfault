@@ -1,7 +1,7 @@
 Rails.application.routes.draw do  #match 'photos', to: 'photos#show', via: [:get, :post]
   match 'analyze' ,:to => 'analyze#index' ,:via => [:get,:post]
   resources :disputes
-
+  resources :clauses
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -3,16 +3,19 @@ class AnalyzeController < ApplicationController
 		text = params[:text]
 		sentences = text.split(/[.?!]/)
 		disputes = Dispute.all.sort{ |x, y| -((x.policy_text.split(/[.?!]/) & sentences).count <=> (y.policy_text.split(/[.?!]/) & sentences).count )}.first(5)
-		rendertext = disputes.policy_text
+		rendertext = disputes[0].policy_text
 		clauses = []
 		disputes.each do |d|
-			clauses << Clause.where(:dispute_id => d.id)[0].clause_text
+			cl = Clause.where(:dispute_id => d.id)[0]
+			if not cl.nil?
+				clauses << cl.clause_text
+			end
 		end
 
 		clauses.each do |c|
-			rendertext.gsub(rendertext, '<mark style = "background-color: red">'+rendertext+'</mark>')
+			text = text.gsub(c, '<mark style = "background-color: red">'+c+'</mark>')
 		end
-
-		render :inline => rendertext
+		# raise 'a'
+		render :inline => text
 	end
 end
