@@ -30,7 +30,21 @@ class AnalyzeController < ApplicationController
 		puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
 		clauses.each do |c|
 			puts c.clause_text
-			text = text.gsub(c.clause_text, '<mark style = "background-color:'+c.clause_status+'">'+c.clause_text+'</mark>')
+			if dispute.policy_link != ''
+				text = text.gsub(c.clause_text, '<a href = "'+
+					dispute.policy_link+
+					'"><mark style = "background-color:'+
+					c.clause_status+'">'+
+					c.clause_text+
+					'</mark></a>')
+				puts text
+			else
+				text = text.gsub(c.clause_text, '<mark style = "background-color:'+
+					c.clause_status+'">'+
+					c.clause_text+
+					'</mark>')
+				puts text
+			end			
 		end
 		puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
 		# raise 'a'
