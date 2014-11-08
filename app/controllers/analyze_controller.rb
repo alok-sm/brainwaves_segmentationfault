@@ -14,14 +14,9 @@ class AnalyzeController < ApplicationController
 	end
 
 	def process1(text)
-		# puts params
-		puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
-		# puts text
-		puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
 		sentences = text.split(/[.?!]/)
 		dispute = Dispute.all.sort{ |x, y| -((x.policy_text.split(/[.?!]/) & sentences).count <=> (y.policy_text.split(/[.?!]/) & sentences).count )}[0]
 		puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
-		# puts text
 		puts dispute.id
 		puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
 		# rendertext = disputes[0].policy_text
@@ -32,10 +27,12 @@ class AnalyzeController < ApplicationController
 		# 		clauses << cl.clause_text
 		# 	end
 		# end
-
+		puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
 		clauses.each do |c|
+			puts c.clause_text
 			text = text.gsub(c.clause_text, '<mark style = "background-color: red">'+c.clause_text+'</mark>')
 		end
+		puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
 		# raise 'a'
 		render :inline => text
 	end
