@@ -28,7 +28,7 @@ class AnalyzeController < ApplicationController
 		# end
 
 		clauses.each do |c|
-			text = text.gsub(c, '<mark style = "background-color: red">'+c+'</mark>')
+			text = text.gsub(c.clause_text, '<mark style = "background-color: red">'+c.clause_text+'</mark>')
 		end
 		# raise 'a'
 		render :inline => text
