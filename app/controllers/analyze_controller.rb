@@ -14,12 +14,16 @@ class AnalyzeController < ApplicationController
 	end
 
 	def process1(text)
-		puts params
+		# puts params
 		puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
-		puts text
+		# puts text
 		puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
 		sentences = text.split(/[.?!]/)
 		dispute = Dispute.all.sort{ |x, y| -((x.policy_text.split(/[.?!]/) & sentences).count <=> (y.policy_text.split(/[.?!]/) & sentences).count )}[0]
+		puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+		# puts text
+		puts dispute.id
+		puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
 		# rendertext = disputes[0].policy_text
 		clauses = Clause.where(:dispute_id => dispute.id)
 		# disputes.each do |d|
