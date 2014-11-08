@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dispute_id: 1
+  clause_text: MyString
+  clause_status: MyString
+
+two:
+  dispute_id: 1
+  clause_text: MyString
+  clause_status: MyString

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Dispute:</strong>
+  <%= @clause.dispute_id %>
+</p>
+
+<p>
+  <strong>Clause text:</strong>
+  <%= @clause.clause_text %>
+</p>
+
+<p>
+  <strong>Clause status:</strong>
+  <%= @clause.clause_status %>
+</p>
+
+<%= link_to 'Edit', edit_clause_path(@clause) %> |
+<%= link_to 'Back', clauses_path %>

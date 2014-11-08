@@ -1,0 +1,29 @@
+<h1>Listing clauses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Dispute</th>
+      <th>Clause text</th>
+      <th>Clause status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clauses.each do |clause| %>
+      <tr>
+        <td><%= clause.dispute_id %></td>
+        <td><%= clause.clause_text %></td>
+        <td><%= clause.clause_status %></td>
+        <td><%= link_to 'Show', clause %></td>
+        <td><%= link_to 'Edit', edit_clause_path(clause) %></td>
+        <td><%= link_to 'Destroy', clause, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Clause', new_clause_path %>

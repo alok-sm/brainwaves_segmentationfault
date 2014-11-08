@@ -1,6 +1,4 @@
-Rails.application.routes.draw do
-  resources :claims
-  #match 'photos', to: 'photos#show', via: [:get, :post]
+Rails.application.routes.draw do  #match 'photos', to: 'photos#show', via: [:get, :post]
   match 'analyze' ,:to => 'analyze#index' ,:via => [:get,:post]
   resources :disputes
 

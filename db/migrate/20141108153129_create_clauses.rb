@@ -4,7 +4,6 @@ class CreateClauses < ActiveRecord::Migration
       t.integer :dispute_id
       t.string :clause_text
       t.string :clause_status
-      t.integer :clause_count
 
       t.timestamps
     end
