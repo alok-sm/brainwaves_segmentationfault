@@ -14,6 +14,7 @@ class AnalyzeController < ApplicationController
 	end
 
 	def process1(text)
+		puts params
 		puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
 		puts text
 		puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
