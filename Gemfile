@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem "paperclip", "~> 4.2"
 require 'thread'
 gem 'thin'
 gem 'googlecharts'
