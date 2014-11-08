@@ -6,13 +6,13 @@ class AnalyzeController < ApplicationController
 		rendertext = disputes.policy_text
 		clauses = []
 		disputes.each do |d|
-			clauses << d.claim_text
+			clauses << Clause.where(:dispute_id => d.id)
 		end
 
 		clauses.each do |c|
 			rendertext.gsub(rendertext, '<mark style = "background-color: red">'+rendertext+'</mark>')
 		end
-		
+
 		render :inline => rendertext
 	end
 end
