@@ -6,7 +6,7 @@ class AnalyzeController < ApplicationController
 		rendertext = disputes.policy_text
 		clauses = []
 		disputes.each do |d|
-			clauses << Clause.where(:dispute_id => d.id)
+			clauses << Clause.where(:dispute_id => d.id)[0].clause_text
 		end
 
 		clauses.each do |c|
