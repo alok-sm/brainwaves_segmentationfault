@@ -1,6 +1,18 @@
 class AnalyzeController < ApplicationController
 	def text
 		text = params[:text]
+		process(text)
+	end
+
+	def file
+		p params
+		u = Upload.new(:file => params[:file])
+		u.save
+		text = yomu.new(u.path).text
+		process(text)
+	end
+
+	def process(text)
 		sentences = text.split(/[.?!]/)
 		disputes = Dispute.all.sort{ |x, y| -((x.policy_text.split(/[.?!]/) & sentences).count <=> (y.policy_text.split(/[.?!]/) & sentences).count )}.first(5)
 		rendertext = disputes[0].policy_text
@@ -17,11 +29,5 @@ class AnalyzeController < ApplicationController
 		end
 		# raise 'a'
 		render :inline => text
-	end
-
-	def file
-		p params
-		Upload.new(:file => params[:file]).save
-		render :json => 'jjg'
 	end
 end
